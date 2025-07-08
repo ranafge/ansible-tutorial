@@ -1,0 +1,9 @@
+---
+
+- name: Check the reachability of Ubuntu and kali hosts
+  hosts: all
+  become: true
+  tasks:
+   - name: Ping hosts to check reachability
+     ansible.builtin.ping:
+
