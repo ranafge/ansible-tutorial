@@ -1,4 +1,6 @@
 vault.pass
 inventory.ini
-vault.pass-file
+.vault.pass-file
 .vault.pass
+vault.pass
+vault.pass-file
