@@ -41,6 +41,29 @@ ansible-galaxy is the command followed `role` to create `role` then init to init
 
 ansible-galaxy Created this file structure under the test folder.
 
+    $ ansible-playbook -i inventory.ini ping_playbook.yml --limit 'all:!windows' --become --ask-become-pass
+    BECOME password: 
+
+    PLAY [Check the reachability of Ubuntu and kali hosts] *********************************
+
+    TASK [Gathering Facts] *****************************************************************
+    ok: [192.168.11.103]
+    ok: [192.168.11.102]
+
+    TASK [Ping hosts to check reachability] ************************************************
+    ok: [192.168.11.102]
+    ok: [192.168.11.103]
+
+    PLAY RECAP *****************************************************************************
+    192.168.11.102             : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+    192.168.11.103             : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Successfully check the hosts reachability.
+
+### Amazon ansible install command  
+    ansible-galaxy collection install amazon.aws
+    
+
 
 
 

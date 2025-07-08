@@ -1,0 +1,16 @@
+---
+- name: start an instance with a public IP address
+  amazon.aws.ec2_instance:
+    name: "public-compute-instance"
+    key_name: "prod-ssh-key"
+    vpc_subnet_id: subnet-5ca1ab1e
+    instance_type: c5.large
+    security_group: default
+    aws_access_key: "{{aws_access_key}}"
+    aws_secret_key: "{{aws_secret_key}}"
+    region: ap-south-1
+    network_interfaces:
+      - assign_public_ip: true
+    image_id: ami-123456
+    tags:
+      Environment: Testing
