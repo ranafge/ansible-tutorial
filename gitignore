@@ -10,3 +10,6 @@ pass.yml
 .aws.config
 
 .aws.credential
+.py 
+.pyc
+.rst
