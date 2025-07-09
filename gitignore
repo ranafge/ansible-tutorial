@@ -4,3 +4,9 @@ inventory.ini
 .vault.pass
 vault.pass
 vault.pass-file
+.inventory.ini
+pass.yml
+.pass.yml
+.aws.config
+
+.aws.credential

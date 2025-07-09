@@ -1,0 +1,57 @@
+
+PLAY [Search for Ubuntu AMIs in Mumbai] ****************************************
+
+TASK [খুঁজে বের করো Ubuntu AMI] **************************************************
+ok: [localhost]
+
+TASK [দেখাও প্রথম পাওয়া AMI] ****************************************************
+ok: [localhost] => {
+    "ami_found.images[0]": {
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "delete_on_termination": true,
+                    "encrypted": false,
+                    "snapshot_id": "snap-08e0bfd0292e41517",
+                    "volume_size": 8,
+                    "volume_type": "gp2"
+                }
+            },
+            {
+                "device_name": "/dev/sdb",
+                "virtual_name": "ephemeral0"
+            },
+            {
+                "device_name": "/dev/sdc",
+                "virtual_name": "ephemeral1"
+            }
+        ],
+        "boot_mode": "legacy-bios",
+        "creation_date": "2025-06-03T15:16:50.000Z",
+        "deprecation_time": "2027-06-03T15:16:50.000Z",
+        "description": "Canonical, Ubuntu, 20.04, amd64 focal image",
+        "ena_support": true,
+        "hypervisor": "xen",
+        "image_id": "ami-09dcba964a9c51505",
+        "image_location": "amazon/ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-20250603",
+        "image_owner_alias": "amazon",
+        "image_type": "machine",
+        "name": "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-20250603",
+        "owner_id": "099720109477",
+        "platform_details": "Linux/UNIX",
+        "public": true,
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "sriov_net_support": "simple",
+        "state": "available",
+        "tags": {},
+        "usage_operation": "RunInstances",
+        "virtualization_type": "hvm"
+    }
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

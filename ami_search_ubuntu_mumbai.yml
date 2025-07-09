@@ -1,0 +1,20 @@
+- name: Search for Ubuntu AMIs in Mumbai
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    aws_region: ap-south-1
+
+  tasks:
+    - name: খুঁজে বের করো Ubuntu AMI
+      amazon.aws.ec2_ami_info:
+        region: "{{ aws_region }}"
+        owners: ['099720109477']  
+        filters:
+          name: "ubuntu/images/hvm-ssd/ubuntu-*-20.04-amd64-server-*"
+          state: "available"
+      register: ami_found
+
+    - name: দেখাও প্রথম পাওয়া AMI
+      debug:
+        var: ami_found.images[0]
