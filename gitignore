@@ -18,3 +18,5 @@ pass.yml
 .txt
 .cs 
 .js
+.pem
+ansible-ec2-create.pem
