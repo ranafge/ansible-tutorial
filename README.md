@@ -64,39 +64,39 @@ Successfully check the hosts reachability.
     ansible-galaxy collection install amazon.aws
     
 
-
-    - name: Create 5 EC2 instances with unique names
-  hosts: localhost
-  connection: local
-  gather_facts: false
-
-  vars:
-    key_name: ansible-ec2-create
-    region: ap-south-1
-    ami_id: ami-09dcba964a9c51505
-    instance_type: t3.small
-    subnet_id: subnet-037d62220ca04ba91
-    security_group: default
-
-  tasks:
-    - name: Launch EC2 instances
-      amazon.aws.ec2_instance:
-        name: "ubuntu{{ item }}"
-        key_name: "{{ key_name }}"
-        instance_type: "{{ instance_type }}"
-        image_id: "{{ ami_id }}"
-        region: "{{ region }}"
-        wait: true
-        count: 1
-        vpc_subnet_id: "{{ subnet_id }}"
-        network:
-          assign_public_ip: true
-          groups:
-            - "{{ security_group }}"
-        tags:
-          Name: "ubuntu{{ item }}"
-          Project: "ansible-ec2-create"
-      loop: "{{ range(1, 6) | list }}"
+    
+        - name: Create 5 EC2 instances with unique names
+      hosts: localhost
+      connection: local
+      gather_facts: false
+    
+      vars:
+        key_name: ansible-ec2-create
+        region: ap-south-1
+        ami_id: ami-09dcba964a9c51505
+        instance_type: t3.small
+        subnet_id: subnet-037d62220ca04ba91
+        security_group: default
+    
+      tasks:
+        - name: Launch EC2 instances
+          amazon.aws.ec2_instance:
+            name: "ubuntu{{ item }}"
+            key_name: "{{ key_name }}"
+            instance_type: "{{ instance_type }}"
+            image_id: "{{ ami_id }}"
+            region: "{{ region }}"
+            wait: true
+            count: 1
+            vpc_subnet_id: "{{ subnet_id }}"
+            network:
+              assign_public_ip: true
+              groups:
+                - "{{ security_group }}"
+            tags:
+              Name: "ubuntu{{ item }}"
+              Project: "ansible-ec2-create"
+          loop: "{{ range(1, 6) | list }}"
 
 ## It will create multipe ubuntu ec2 instance.
 
